@@ -1,0 +1,37 @@
+
+let weight = document.querySelector("#weight")
+let height = document.querySelector("#height")
+let calculateBMI = document.querySelector("#calculateBMI")
+let result = document.querySelector("#result")
+
+let weightInput
+let heightInput
+
+function empty(){
+    weightInput = parseFloat(weight.value)
+    heightInput = parseFloat(height.value)
+
+    if (weight.value.trim() === "") {
+        result.textContent = "Please input weight"
+        return false
+    }
+    if (height.value.trim() === "") {
+        result.textContent = "Please input height"
+        return false
+    }
+
+    return true
+}
+
+function formula(){
+    if (!empty()) return
+    // formula is kg/m^2
+    return result.textContent = `Your BMI is ${weightInput/((heightInput/100)*(heightInput/100))}`
+}
+
+calculateBMI.addEventListener("click", formula)
+height.addEventListener("keydown", (event) => {
+    if (event.key === 'Enter'){
+        formula()
+    }
+})

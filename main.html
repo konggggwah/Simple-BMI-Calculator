@@ -3,9 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="calculator.js" defer></script>
     <title>BMI Calculator</title>
 </head>
 <body>
-    
+    <!--Focus on HTML and javascript first, without CSS-->
+    <div class = "flex-container">
+        <div class="header"><h1>BMI Calculator</h1></div>
+        <div class = "weight-container">
+            <!--Will limit weight to max 650kg-->
+            <label for = "weight">Weight (kg):</label>
+            <input type = "number" name = "weight" id = "weight" placeholder= "Enter your weight">
+        </div>
+        <div class = "height-container">
+            <!--Min height 50 cm, max height 400 cm-->
+            <label for = "height">Height (cm):</label>
+            <input type = "number" name = "height" id = "height" placeholder = "Enter your height">
+        </div>
+        <button id = "calculateBMI">Calculate BMI</button>
+        <p id = "result" style="margin-bottom: 25px;" ></p>
+    </div>
 </body>
 </html>
