@@ -33,16 +33,33 @@ function formula(){
 }
 
 function range(roundedBMI){
+    if (!empty()) return
+
+    // formula for healthy range
+    // weight * BMI
+
+
+
+    let diffBMI;
+    let healthyWeight;
+
+
     // look at the range of BMI
     let status = document.createElement("p");
     if (roundedBMI < 18.5){
-        status.textContent = "You are underweight!"
+        diffBMI = 18.5 - roundedBMI
+        healthyWeight = diffBMI * (heightInput/100)
+        status.textContent = `You are underweight! You need to gain about ${Math.round(healthyWeight * 100)/100}kg to reach a healthy BMI.`
     } else if (roundedBMI >= 18.5 && roundedBMI < 23){
         status.textContent = "You are healthy, keep it up!"
     } else if (roundedBMI >= 23 && roundedBMI <= 27.5){
-        status.textContent = "You are overweight :("
+        diffBMI = roundedBMI - 23
+        healthyWeight = diffBMI * (heightInput/100)
+        status.textContent = `You are overweight :( You need to lose about ${Math.round(healthyWeight * 100)/100}kg to reach a healthy BMI.`
     } else{
-        status.textContent = "You are severely obese."
+        diffBMI = roundedBMI - 23
+        healthyWeight = diffBMI * (heightInput/100)
+        status.textContent = `You are severely obese. You need to lose about ${Math.round(healthyWeight * 100)/100}kg to reach a healthy BMI.`
     }
     result.appendChild(status)
 }
