@@ -28,17 +28,38 @@ function formula(){
     // formula is kg/m^2
     let BMI = weightInput/((heightInput/100)*(heightInput/100))
     let roundedBMI = Math.round(BMI * 100)/100
-    return result.textContent = `Your BMI is ${roundedBMI}`
+    result.textContent = `Your BMI is ${roundedBMI}`
+    return roundedBMI
 }
 
-calculateBMI.addEventListener("click", formula)
+function range(roundedBMI){
+    // look at the range of BMI
+    let status = document.createElement("p");
+    if (roundedBMI < 18.5){
+        status.textContent = "You are underweight!"
+    } else if (roundedBMI >= 18.5 && roundedBMI < 23){
+        status.textContent = "You are healthy, keep it up!"
+    } else if (roundedBMI >= 23 && roundedBMI <= 27.5){
+        status.textContent = "You are overweight :("
+    } else{
+        status.textContent = "You are severely obese."
+    }
+    result.appendChild(status)
+}
+
+function handleClick(){
+    let roundedBMI = formula()
+    return range(roundedBMI)
+}
+
+calculateBMI.addEventListener("click", handleClick)
 height.addEventListener("keydown", (event) => {
     if (event.key === 'Enter'){
-        formula()
+        handleClick()
     }
 })
 weight.addEventListener("keydown", (event) => {
     if (event.key === 'Enter'){
-        formula()
+        handleClick()
     }
 })
