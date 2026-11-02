@@ -37,3 +37,8 @@ height.addEventListener("keydown", (event) => {
         formula()
     }
 })
+weight.addEventListener("keydown", (event) => {
+    if (event.key === 'Enter'){
+        formula()
+    }
+})
