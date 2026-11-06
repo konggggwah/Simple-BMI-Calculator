@@ -38,11 +38,8 @@ function range(roundedBMI){
     // formula for healthy range
     // weight * BMI
 
-
-
     let diffBMI;
     let healthyWeight;
-
 
     // look at the range of BMI
     let status = document.createElement("p");
